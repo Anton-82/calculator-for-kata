@@ -26,6 +26,7 @@ public class Main {
         String[] listPartsOfString = new String[3];
         boolean isRomanNumbers = false;
         HashMap<String, Integer> romanArabicMap = createRomanArabicHashMap();
+        HashMap<String, Integer> romanArabicMapForResult = createRomanArabicHashMapForResult();
         int result = 0;
 
         if (input.contains("+") && !input.contains("-") && !input.contains("*") && !input.contains("/") && input.split("\\+").length < 3) {
@@ -70,13 +71,13 @@ public class Main {
         result = solver(firstNumber, arithmeticSign, secondNumber);
 
         if (isRomanNumbers) {
-            for (Map.Entry<String, Integer> entry : romanArabicMap.entrySet()) {
+            for (Map.Entry<String, Integer> entry : romanArabicMapForResult.entrySet()) {
                 if (entry.getValue().equals(result))
-                    return "Result= " + entry.getKey();
+                    return "Result = " + entry.getKey();
             }
             throw new IncorrectValueOfResultException("We don't have roman sign for this result");
         }
-        return "Result= " + String.valueOf(result);
+        return "Result = " + String.valueOf(result);
     }
 
     static HashMap<String, Integer> createRomanArabicHashMap() {
@@ -91,6 +92,31 @@ public class Main {
         romanArabicMap.put("VIII", 8);
         romanArabicMap.put("IX", 9);
         romanArabicMap.put("X", 10);
+        return romanArabicMap;
+    }
+
+    static HashMap<String, Integer> createRomanArabicHashMapForResult() {
+        HashMap<String, Integer> romanArabicMap = new HashMap<>();
+        romanArabicMap.put("I", 1);
+        romanArabicMap.put("II", 2);
+        romanArabicMap.put("III", 3);
+        romanArabicMap.put("IV", 4);
+        romanArabicMap.put("V", 5);
+        romanArabicMap.put("VI", 6);
+        romanArabicMap.put("VII", 7);
+        romanArabicMap.put("VIII", 8);
+        romanArabicMap.put("IX", 9);
+        romanArabicMap.put("X", 10);
+        romanArabicMap.put("XI", 11);
+        romanArabicMap.put("XII", 12);
+        romanArabicMap.put("XIII", 13);
+        romanArabicMap.put("XIV", 14);
+        romanArabicMap.put("XV", 15);
+        romanArabicMap.put("XVI", 16);
+        romanArabicMap.put("XVII", 17);
+        romanArabicMap.put("XVIII", 18);
+        romanArabicMap.put("XIX", 19);
+        romanArabicMap.put("XX", 20);
         return romanArabicMap;
     }
 
